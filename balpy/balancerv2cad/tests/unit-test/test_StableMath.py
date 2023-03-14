@@ -108,20 +108,23 @@ class TestStableMath(unittest.TestCase):
         result = StableMath.calcOutGivenIn(amp, balances, tokenIndexIn, tokenIndexOut, tokenAmountIn)
         expected = Decimal(991747876655227989)/Decimal(1e18)
         assert expectEqualWithError(result, expected)
-    # def test_calcDueTokenProtoclSwapFeeAmount(stablemath_test):
-    #     '''
-    #     Tests if output is instance of Decimal
-    #     '''
-    #     #TODO
-    #     amp = Decimal(100)
-    #     balances = [Decimal(10), Decimal(11)]
-    #     lastInvariant = Decimal(10)
-    #     tokenIndex = 0
-    #     protocolSwapFeePercentage = 0.1
-    #     result = StableMath.calcDueTokenProtocolSwapFeeAmount(amp,balances, lastInvariant, tokenIndex, protocolSwapFeePercentage)
-    #     assert isinstance(result, Decimal)
-    #     expectedFeeAmount = StableMath.calc
-    #     assert expectEqualWithError(result, Decimal)
+
+
+    def test_calcDueTokenProtoclSwapFeeAmount(stablemath_test):
+        '''
+        Tests if output is instance of Decimal
+        '''
+        amp = Decimal(100)
+        balances = [Decimal(10), Decimal(11)]
+        lastInvariant = Decimal(10)
+        tokenIndex = 0
+        protocolSwapFeePercentage = 0.1
+        result = StableMath.calcDueTokenProtocolSwapFeeAmount(amp, balances, lastInvariant, tokenIndex, protocolSwapFeePercentage)
+        assert isinstance(result, Decimal)
+        expectedFeeAmount = Decimal('0.9901091862822448074991147713')
+        assert expectEqualWithError(result, expectedFeeAmount)
+
+
     def test_calcBptOutGivenExactTokensIn(stablemath_test):
         '''
         Tests for instance of Decimal

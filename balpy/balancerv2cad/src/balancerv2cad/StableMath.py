@@ -151,7 +151,7 @@ class StableMath:
         else:
             accumulatedTokenSwapFees = 0
 
-        return divDown(mulDown(accumulatedTokenSwapFees, Decimal(protocolSwapFeePercentage)))
+        return divDown(mulDown(accumulatedTokenSwapFees, Decimal(protocolSwapFeePercentage)), Decimal(1))
 
     @staticmethod
     def calcInGivenOut(amplificationParameter: Decimal, balances: list, tokenIndexIn: int, tokenIndexOut: int, tokenAmountOut: Decimal) -> Decimal:
@@ -330,3 +330,13 @@ class StableMath:
                 break
         return tokenBalance
 
+
+
+# amp = Decimal(100)
+# balances = [Decimal(10), Decimal(11)]
+# lastInvariant = Decimal(10)
+# tokenIndex = 0
+# protocolSwapFeePercentage = 0.1
+# result = StableMath.calcDueTokenProtocolSwapFeeAmount(amp, balances, lastInvariant, tokenIndex, protocolSwapFeePercentage)
+# print(result)
+# pass
